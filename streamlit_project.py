@@ -475,7 +475,7 @@ elif add_selectbox == "Modelling":
                 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=percentage/100, random_state=random_state)
 
                 if model_select == "XGBoost":
-                    model = XGBClassifier(random_state=random_state, eval_metric='logloss')
+                    model = XGBClassifier(random_state=random_state, eval_metric='logloss', use_label_encoder=False)
                     model.fit(X_train, y_train)
                     y_pred = model.predict(X_test)
                 elif model_select == "Logistic Regression":
