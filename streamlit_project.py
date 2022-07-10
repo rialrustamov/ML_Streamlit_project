@@ -463,7 +463,7 @@ elif add_selectbox == "Modelling":
             with model_col_1:
                 random_state = st.number_input("Random State", value=42)
             with model_col_2:
-                percentage = st.number_input("Percentage of Data", value=80)
+                percentage = st.number_input("Train/Test Split", value=80)
             with model_col_3:
                 model_select = st.selectbox("Select Models", ("Logistic Regression", "Decision Tree", "Random Forest", "Naive Bayes", "XGBoost", "SVM"))
 
