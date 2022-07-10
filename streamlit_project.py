@@ -465,7 +465,7 @@ elif add_selectbox == "Modelling":
             with model_col_2:
                 percentage = st.number_input("Train/Test Split", value=80)
             with model_col_3:
-                model_select = st.selectbox("Select Models", ("Logistic Regression", "Decision Tree", "Random Forest", "Naive Bayes", "XGBoost", "SVM"))
+                model_select = st.selectbox("Select Models", ("Logistic Regression", "Random Forest", "Naive Bayes", "XGBoost", "Decision Tree", "SVM"))
 
             result = st.markdown("#### Random State: {0} \n #### Percentage: {1}% \n #### Model: {2}".format(random_state, percentage, model_select))
 
@@ -475,7 +475,7 @@ elif add_selectbox == "Modelling":
                 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=percentage/100, random_state=random_state)
 
                 if model_select == "XGBoost":
-                    model = XGBClassifier(random_state=random_state, eval_metric='logloss', use_label_encoder=False, objective = "binary:logistic")
+                    model = XGBClassifier(random_state=random_state, eval_metric='rmse', use_label_encoder=False, objective = "binary:logistic")
                     model.fit(X_train, y_train)
                     y_pred = model.predict(X_test)
                 elif model_select == "Logistic Regression":
